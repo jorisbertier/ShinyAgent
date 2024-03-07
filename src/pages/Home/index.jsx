@@ -6,7 +6,7 @@ import { StyledLink } from '../../utils/style/Atoms'
 
 const App = styled.div `
   display: flex;
-  width: 100vw;
+  max-width: 100vw;
   justify-content: center;
   align-items: center;
   margin: 30px;
