@@ -2,7 +2,6 @@ import '../../styles/App.css';
 // import Freelances from './Freelances/Freelances';
 import HomeIllustration from '../../assets/home-illustration.svg'
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { StyledLink } from '../../utils/style/Atoms'
 
 const App = styled.div `
