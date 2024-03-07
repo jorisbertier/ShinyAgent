@@ -18,12 +18,11 @@ root.render(
     <Header />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/survey/:questionNumber" element={<Survey />}>
+      <Route path="/survey/:questionNumber" element={<Survey />}/>
       <Route path="*" element={<Error />} />
       { /* Nous imbriquons nos composants dans survey */}
         {/* <Route path="client" element={<ClientForm />} /> */}
         {/* <Route path="freelance" element={<FreelanceForm />} /> */}
-      </Route>
     </Routes>
   </Router>
 </React.StrictMode>,
