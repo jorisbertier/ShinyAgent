@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Survey from './pages/Survey/Survey';
 import Header from './components/Header/Index';
 import Error from './components/Error';
+import { Result } from './pages/Result/Result';
+import { Freelances } from './pages/Freelances/Freelances';
 
 // import ClientForm from './components/ClientForm';
 // import FreelanceForm from './components/FreelanceForm';
@@ -19,6 +21,8 @@ root.render(
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/survey/:questionNumber" element={<Survey />}/>
+      <Route path="/result" element={<Result />}/>
+      <Route path="/freelance" element={<Freelances/>}/>
       <Route path="*" element={<Error />} />
       { /* Nous imbriquons nos composants dans survey */}
         {/* <Route path="client" element={<ClientForm />} /> */}
