@@ -32,7 +32,7 @@ root.render(
       <Route path="/" element={<Home />} />
       <Route path="/survey/:questionNumber" element={<Survey />}/>
       <Route path="/result" element={<Result />}/>
-      <Route path="/freelance" element={<Freelances/>}/>
+      <Route path="/freelances" element={<Freelances/>}/>
       <Route path="*" element={<Error />} />
       { /* Nous imbriquons nos composants dans survey */}
         {/* <Route path="client" element={<ClientForm />} /> */}
