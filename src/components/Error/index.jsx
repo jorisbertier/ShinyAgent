@@ -12,18 +12,18 @@ const ErrorWrapper = styled.div `
 `
 
 const Illustration = styled.img `
-width: 875px;
-height: 376px;
-top: 390px;
-left: 282px;
+    width: 875px;
+    height: 376px;
+    top: 390px;
+    left: 282px;
 `
 
 const ErrorTitle = styled.h1 `
-font-weight: 300;
+    font-weight: 300;
 `
 const ErrorSubtitle = styled.h2 `
-font-weight: 300;
-color: ${colors.secondary}
+    font-weight: 300;
+    color: ${colors.secondary}
 `
 
 function Error() {

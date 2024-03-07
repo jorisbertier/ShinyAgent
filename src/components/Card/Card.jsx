@@ -4,29 +4,44 @@ import styled from 'styled-components'
 import colors from '../../utils/style/Color'
 
 const CardLabel = styled.span`
-color: red;
-font-size: 22px;
-font-weight: bold;
+    color: ${colors.primary};
+    font-family: Trebuchet MS;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: center;
 `
 
 const CardImage = styled.img`
-    height: 80px;
-    width: 80px;
+    height: 150px;
+    width: 150px;
+    align-self: center;
     border-radius: 50%;
 `
 
 const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     padding: 15px;
     background-color: ${colors.backgroundLight};
     border-radius: 30px;
-    width: 350px;
+    width: 300px;
+    height: 300px;
     transition: 200ms;
     &:hover {
-        cursor: pointer;
-        box-shadow: 2px 2px 10px #e2e3e9;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px #e2e3e9;
     }
+`
+
+const CardTitle = styled.span `
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: center;
 `
 
 function Card({ label, title  = 'Mon titre par défault', picture }) {
@@ -34,7 +49,7 @@ function Card({ label, title  = 'Mon titre par défault', picture }) {
         <CardWrapper>
             <CardLabel>{label}</CardLabel>
             <CardImage src={picture} alt="freelance" />
-            <span>{title}</span>
+            <CardTitle>{title}</CardTitle>
         </CardWrapper>
     )
 }
