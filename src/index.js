@@ -10,14 +10,23 @@ import Error from './components/Error';
 import { Result } from './pages/Result/Result';
 // import { Freelances } from '../src/pages/Freelances/Freelances';
 import Freelances from './pages/Freelances/Freelances'
+import { createGlobalStyle } from 'styled-components'
+
 
 // import ClientForm from './components/ClientForm';
 // import FreelanceForm from './components/FreelanceForm';
+
+const GlobalStyle = createGlobalStyle`
+    * {
+      font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
+`
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   <Router>
+  <GlobalStyle />
     <Header />
     <Routes>
       <Route path="/" element={<Home />} />
