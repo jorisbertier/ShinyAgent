@@ -1,4 +1,5 @@
-import { Outlet, Link } from 'react-router'
+import { Outlet } from 'react-router'
+import { Link } from 'react-router-dom';
 
 function Survey() {
     return (
