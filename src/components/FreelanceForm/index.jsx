@@ -26,7 +26,7 @@ function Freelance() {
         <Card
             key={index}
             abel={freelance.name}
-            title={freelance.jobTitle}
+            title={}
             picture={freelance.picture}
         />
       ))}

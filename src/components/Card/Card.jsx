@@ -15,4 +15,9 @@ Card.propTypes = {
     title: PropTypes.string.isRequired,
     picture: PropTypes.string
 }
+
+Card.defaultProps = {
+    title: 'Mon titre par défaut',
+}
+
 export default Card
