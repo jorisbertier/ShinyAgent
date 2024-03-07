@@ -25,7 +25,7 @@ function Freelance() {
       <ul> {freelanceProfiles.map((freelance, index) => (
         <Card
             key={index}
-            abel={freelance.name}
+            label={freelance.name}
             title={freelance.jobTitle}
             picture={freelance.picture}
         />
