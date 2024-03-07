@@ -8,7 +8,8 @@ import Survey from './pages/Survey/Survey';
 import Header from './components/Header/Index';
 import Error from './components/Error';
 import { Result } from './pages/Result/Result';
-import { Freelances } from './pages/Freelances/Freelances';
+// import { Freelances } from '../src/pages/Freelances/Freelances';
+import Freelances from './pages/Freelances/Freelances'
 
 // import ClientForm from './components/ClientForm';
 // import FreelanceForm from './components/FreelanceForm';

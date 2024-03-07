@@ -1,12 +1,12 @@
 import '../../styles/App.css';
-import Freelance from '../../components/FreelanceForm';
+// import Freelances from './Freelances/Freelances';
 
 function Home() {
 
   return (
     <div className="App">
       <h1>Home</h1>
-      <Freelance />
+      {/* <Freelances /> */}
     </div>
   );
 }
