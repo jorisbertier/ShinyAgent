@@ -1,12 +1,24 @@
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+
+const StyledLink = styled(Link)`
+    padding: 15px;
+    color: #8186a0;
+    text-decoration: none;
+    font-size: 18px;
+
+    &:hover {
+        color: blue; /* Changer la couleur au survol */
+    }
+`
 
 function Header() {
     return (
         <nav>
-            <Link to="/">Accueil</Link>
-            <Link to="/survey/1">Questionnaire</Link>
-            <Link to="/result">Result</Link>
-            <Link to="/freelance">Freelance</Link>
+            <StyledLink to="/">Accueil</StyledLink>
+            <StyledLink to="/survey/1">Questionnaire</StyledLink>
+            <StyledLink to="/freelances">Profils</StyledLink>
+            <StyledLink to="/result">Result</StyledLink>
         </nav>
     )
     
