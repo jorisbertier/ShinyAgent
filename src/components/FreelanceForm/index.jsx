@@ -1,6 +1,6 @@
 import DefaultPicture from '../../assets/profile.png'
 import Card from '../Card/Card'
- 
+
 const freelanceProfiles = [
     {
         name: 'Jane Doe',
@@ -21,7 +21,7 @@ const freelanceProfiles = [
 
 function Freelance() {
   return <div>
-      <h1>Freelance</h1>
+      <h1>Freelances 👩‍💻👨‍💻👩‍💻</h1>
       <ul> {freelanceProfiles.map((freelance, index) => (
         <Card
             key={index}

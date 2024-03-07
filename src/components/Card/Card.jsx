@@ -1,4 +1,6 @@
-function Card({ label, title, picture }) {
+import PropTypes from 'prop-types'
+
+function Card({ label, title  = 'Mon tire par défault', picture }) {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', padding: 15 }}>
             <span>{label}</span>
@@ -7,5 +9,10 @@ function Card({ label, title, picture }) {
         </div>
     )
 }
- 
+
+Card.propTypes = {
+    label: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    picture: PropTypes.string
+}
 export default Card
