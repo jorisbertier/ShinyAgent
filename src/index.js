@@ -15,7 +15,7 @@ import { createGlobalStyle } from 'styled-components'
 
 // import ClientForm from './components/ClientForm';
 // import FreelanceForm from './components/FreelanceForm';
-
+//
 const GlobalStyle = createGlobalStyle`
     * {
       font-family: 'Trebuchet MS', Helvetica, sans-serif;
