@@ -86,14 +86,14 @@ function Freelances() {
         <FreelancesWrapper>
             <PageTitle>Trouver votre prestataire</PageTitle>
             <PageSubtitle>Chez Shiny nous réunissons les meilleurs profils pour vous</PageSubtitle>
-            <CardsContainer>
+            
 
             {isLoading ? (
                 <LoaderWrapper>
                     <Loader />
                 </LoaderWrapper>
             )
-            : ( <>
+            : ( <CardsContainer>
                 {freelancersList.map((profile, index) => (
                     <Card
                         key={`${profile.name}-${index}`}
@@ -102,10 +102,8 @@ function Freelances() {
                         picture={profile.picture}
                     />
                 ))}
-                </>
+                </CardsContainer>
             ) }
-
-            </CardsContainer>
             {/* <CardsContainer>
                 {freelanceProfiles.map((profile, index) => (
                     <Card
