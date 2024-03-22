@@ -11,6 +11,8 @@ import { Result } from './pages/Result/Result';
 // import { Freelances } from '../src/pages/Freelances/Freelances';
 import Freelances from './pages/Freelances/Freelances'
 import { createGlobalStyle } from 'styled-components'
+import Footer from './pages/Freelances/Footer';
+import { ThemeProvider } from './utils/style/context';
 
 
 // import ClientForm from './components/ClientForm';
@@ -26,19 +28,22 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   <Router>
-  <GlobalStyle />
-    <Header />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/survey/:questionNumber" element={<Survey />}/>
-      <Route path="/result" element={<Result />}/>
-      <Route path="/freelances" element={<Freelances/>}/>
-      <Route path="*" element={<Error />} />
-      { /* Nous imbriquons nos composants dans survey */}
-        {/* <Route path="client" element={<ClientForm />} /> */}
-        {/* <Route path="freelance" element={<FreelanceForm />} /> */}
-    </Routes>
-  </Router>
+    <ThemeProvider>
+      <GlobalStyle />
+      <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/survey/:questionNumber" element={<Survey />}/>
+          <Route path="/result" element={<Result />}/>
+          <Route path="/freelances" element={<Freelances/>}/>
+          <Route path="*" element={<Error />} />
+          { /* Nous imbriquons nos composants dans survey */}
+            {/* <Route path="client" element={<ClientForm />} /> */}
+            {/* <Route path="freelance" element={<FreelanceForm />} /> */}
+        </Routes>
+      </ThemeProvider>
+    </Router>
+  <Footer />
 </React.StrictMode>,
 );
 
