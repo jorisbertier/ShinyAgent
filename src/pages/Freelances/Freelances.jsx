@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import DefaultPicture from '../../assets/profile.png'
 import Card from '../../components/Card/Card'
 import colors from '../../utils/style/Color'
+
 
 const CardsContainer = styled.div`
     display: grid;
@@ -29,35 +30,66 @@ const PageSubtitle = styled.h3 `
     color: ${colors.secondary};
 `
 
-const freelanceProfiles = [
-    {
-        name: 'Jane Doe',
-        jobTitle: 'Devops',
-        picture: DefaultPicture,
-    },
-    {
-        name: 'John Doe',
-        jobTitle: 'Developpeur frontend',
-        picture: DefaultPicture,
-    },
-    {
-        name: 'Jeanne Biche',
-        jobTitle: 'Développeuse Fullstack',
-        picture: DefaultPicture,
-    },
-    {
-        name: 'Lauren Ipsum',
-        jobTitle: 'UX Designer',
-        picture: DefaultPicture
-    }
-]
+// const freelanceProfiles = [
+//     {
+//         name: 'Jane Doe',
+//         jobTitle: 'Devops',
+//         picture: DefaultPicture,
+//     },
+//     {
+//         name: 'John Doe',
+//         jobTitle: 'Developpeur frontend',
+//         picture: DefaultPicture,
+//     },
+//     {
+//         name: 'Jeanne Biche',
+//         jobTitle: 'Développeuse Fullstack',
+//         picture: DefaultPicture,
+//     },
+//     {
+//         name: 'Lauren Ipsum',
+//         jobTitle: 'UX Designer',
+//         picture: DefaultPicture
+//     }
+// ]
+
 
 function Freelances() {
+    // const [profilData, setProfilData] = useState([])
+    const [freelancersList, setFreelancesList] = useState([])
+    
+    useEffect(() => {
+        async function fetchProfil() {
+            try{
+                const response = await fetch(`http://localhost:8000/freelances`);
+                // const { profilData } = await response.json();
+                // setProfilData(profilData);
+                const { freelancersList } = await response.json();
+                setFreelancesList(freelancersList);
+                console.log(freelancersList)
+                
+            }catch(err){
+                console.log(err)
+            }
+        }
+        fetchProfil()
+    }, [])
+
     return (
         <FreelancesWrapper>
             <PageTitle>Trouver votre prestataire</PageTitle>
             <PageSubtitle>Chez Shiny nous réunissons les meilleurs profils pour vous</PageSubtitle>
             <CardsContainer>
+            {freelancersList.map((profile, index) => (
+                    <Card
+                        key={`${profile.name}-${index}`}
+                        label={profile.job}
+                        title={profile.name}
+                        picture={profile.picture}
+                    />
+                ))}
+            </CardsContainer>
+            {/* <CardsContainer>
                 {freelanceProfiles.map((profile, index) => (
                     <Card
                         key={`${profile.name}-${index}`}
@@ -65,7 +97,7 @@ function Freelances() {
                         title={profile.name}
                     />
                 ))}
-            </CardsContainer>
+            </CardsContainer> */}
         </FreelancesWrapper>
     )
 }
