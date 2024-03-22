@@ -11,7 +11,7 @@ import { Result } from './pages/Result/Result';
 // import { Freelances } from '../src/pages/Freelances/Freelances';
 import Freelances from './pages/Freelances/Freelances'
 import Footer from './pages/Footer';
-import { ThemeProvider } from './utils/style/context';
+import { SurveyProvider, ThemeProvider } from './utils/style/context';
 import GlobalStyle from './utils/style/GlobalStyle';
 
 
@@ -21,6 +21,7 @@ root.render(
   <React.StrictMode>
   <Router>
     <ThemeProvider>
+    <SurveyProvider>
       <GlobalStyle />
       <Header />
         <Routes>
@@ -34,6 +35,7 @@ root.render(
             {/* <Route path="freelance" element={<FreelanceForm />} /> */}
         </Routes>
         <Footer />
+        </SurveyProvider>
       </ThemeProvider>
     </Router>
 </React.StrictMode>,
