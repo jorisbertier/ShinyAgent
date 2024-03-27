@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import colors from '../../utils/style/Color'
 import { Loader } from '../../utils/style/Atoms'
 import { SurveyContext } from '../../utils/style/context'
+import { useFetch } from '../../utils/style/hooks'
 // import { SurveyContext } from '../../utils/style/context'
 
 const SurveyContainer = styled.div`
@@ -63,9 +64,9 @@ function Survey() {
     const questionNumberInt = parseInt(questionNumber)
     const prevQuestionNumber = questionNumberInt === 1 ? 1 : questionNumberInt - 1
     const nextQuestionNumber = questionNumberInt + 1
-    const [surveyData, setSurveyData] = useState({})
-    const [isDataLoading, setDataLoading] = useState(false)
-    const [error, setError] = useState(null)
+    // const [surveyData, setSurveyData] = useState({})
+    // const [isDataLoading, setDataLoading] = useState(false)
+    // const [error, setError] = useState(null)
     
     // useEffect(() => {
     //     setDataLoading(true)
@@ -80,23 +81,26 @@ function Survey() {
     //     )
     // }, [])
 
-    useEffect(() => {
-        async function fetchSurvey() {
-            setDataLoading(true)
-            try{
-                const response = await fetch(`http://localhost:8000/survey`);
-                const {surveyData} = await response.json();
-                setSurveyData(surveyData)
-            }catch(err) {
-                console.log(err);
-                setError(true);
-            }
-            finally {
-                setDataLoading(false);
-            }
-        }
-        fetchSurvey();
-    }, [])
+    // useEffect(() => {
+    //     async function fetchSurvey() {
+    //         setDataLoading(true)
+    //         try{
+    //             const response = await fetch(`http://localhost:8000/survey`);
+    //             const {surveyData} = await response.json();
+    //             setSurveyData(surveyData)
+    //         }catch(err) {
+    //             console.log(err);
+    //             setError(true);
+    //         }
+    //         finally {
+    //             setDataLoading(false);
+    //         }
+    //     }
+    //     fetchSurvey();
+    // }, [])
+
+    const { data, isLoading } = useFetch(`http://localhost:8000/survey`)
+    const { surveyData } = data
 
     const {  answers, saveAnswers } = useContext(SurveyContext)
 
@@ -107,7 +111,7 @@ function Survey() {
     return (
         <SurveyContainer>
             <QuestionTitle>Question {questionNumber}</QuestionTitle>
-            {isDataLoading ? <Loader /> : <QuestionContent>{surveyData[questionNumber]}   </QuestionContent>}
+            {isLoading ? <Loader /> : (<QuestionContent>{surveyData && surveyData[questionNumber]}</QuestionContent>)}
             {answers && (
               <ReplyWrapper>
                 <ReplyBox
@@ -126,7 +130,7 @@ function Survey() {
             )}
             <LinkWrapper>
                 <Link to={`/survey/${prevQuestionNumber}`}>Précédent</Link>
-                    {surveyData[questionNumberInt + 1] ? (
+                  {surveyData && surveyData[questionNumberInt + 1] ? (
                 <Link to={`/survey/${nextQuestionNumber}`}>Suivant</Link>
                 ) : (
                     <Link to="/result">Résultats</Link>
