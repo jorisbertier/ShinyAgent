@@ -99,10 +99,15 @@ function Survey() {
     //     fetchSurvey();
     // }, [])
 
-    const { data, isLoading } = useFetch(`http://localhost:8000/survey`)
+    const {  answers, saveAnswers } = useContext(SurveyContext)
+
+    const { data, isLoading, error } = useFetch(`http://localhost:8000/survey`)
     const { surveyData } = data
 
-    const {  answers, saveAnswers } = useContext(SurveyContext)
+    if (error) {
+      return <span>Il y a un problème</span>
+    }
+
 
     function saveReply(answer) {
       saveAnswers({ [questionNumber]: answer })
